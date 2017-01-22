@@ -1,0 +1,36 @@
+{
+  "name": "eportfolio",
+  "description": "A Vue.js project",
+  "author": "Lassemon <lassemon.pirinen@gmail.com>",
+  "private": true,
+  "scripts": {
+    "watchify": "watchify -vd -p browserify-hmr -e src/main.js -o dist/build.js",
+    "serve": "http-server -o -s -c 1 -a localhost",
+    "dev": "npm-run-all --parallel watchify serve",
+    "build": "cross-env NODE_ENV=production browserify -g envify src/main.js | uglifyjs -c warnings=false -m > dist/build.js"
+  },
+  "dependencies": {
+    "vue": "2.1.10"
+  },
+  "devDependencies": {
+    "babel-core": "6.22.1",
+    "babel-preset-es2015": "6.22.0",
+    "babelify": "7.3.0",
+    "browserify": "13.3.0",
+    "browserify-hmr": "0.3.5",
+    "cross-env": "1.0.8",
+    "envify": "3.4.1",
+    "http-server": "0.9.0",
+    "npm-run-all": "4.0.1",
+    "uglify-js": "2.7.5",
+    "vueify": "9.4.0",
+    "watchify": "3.8.0",
+    "node-sass": "4.3.0"
+  },
+  "browserify": {
+    "transform": [
+      "vueify",
+      "babelify"
+    ]
+  }
+}
