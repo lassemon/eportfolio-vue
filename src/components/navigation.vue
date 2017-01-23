@@ -1,9 +1,9 @@
 <template>
   <nav>
-    <span class="nav-item" v-bind:class="{ active: isActive('about') }" @click="changeView('about')">About</span>
-    <span class="nav-item" v-bind:class="{ active: isActive('portfolio') }" @click="changeView('portfolio')">Portfolio</span>
-    <span class="nav-item" v-bind:class="{ active: isActive('lifestyle') }" @click="changeView('lifestyle')">Lifestyle</span>
-    <span class="nav-item" v-bind:class="{ active: isActive('contact') }" @click="changeView('contact')">Contact</span>
+    <router-link class="nav-item" key="about" to="/" replace exact @click="changeView('portfolio')">About</router-link>
+    <router-link class="nav-item" to="/portfolio" replace>Portfolio</router-link>
+    <router-link class="nav-item" to="/lifestyle" replace>Lifestyle</router-link>
+    <router-link class="nav-item" to="/contact" replace>Contact</router-link>
   </nav>
 </template>
 
@@ -15,13 +15,6 @@
       }
     },
     methods: {
-      changeView(view) {
-        this.view = view;
-        this.$emit('changeView', view);
-      },
-      isActive(view){
-        return this.view === view;
-      }
     }
   }
 </script>

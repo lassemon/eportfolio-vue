@@ -1,49 +1,33 @@
 <template>
   <div v-bind:id="[view]" class="main">
-    <div class="wrapper">
-      <transition name="fade">
-        <about key="about" v-show="view === 'about'"/>
-      </transition>
-      <transition name="fade">
-        <portfolio key="p" v-show="view === 'portfolio'"/>
-      </transition>
-      <transition name="fade">
-        <lifestyle key="l" v-show="view === 'lifestyle'"/>
-      </transition>
-      <transition name="fade">
-        <contact key="c" v-show="view === 'contact'"/>
-      </transition>
-    </div>
-
-    <navFooter @changeView="changeView"/>
+    <transition name="fade">
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
+    </transition>
+    <navFooter />
   </div>
 </template>
 
 <script>
-import about from './components/about.vue'
-import portfolio from './components/portfolio.vue'
-import lifestyle from './components/lifestyle.vue'
-import contact from './components/contact.vue'
 import navFooter from './components/footer.vue'
 
 export default {
   name: 'app',
   components: {
-    about,
-    portfolio,
-    lifestyle,
-    contact,
     navFooter
+  },
+  watch: {
+    '$route': function(to, from){
+      this.view = to.name;
+    }
   },
   data () {
     return {
-      view: 'about'
+      view: this.$route.name
     }
   },
   methods: {
-    changeView(view) {
-      this.view = view;
-    }
   }
 }
 </script>
@@ -64,8 +48,7 @@ export default {
   }
 
   html,body,
-  #app,
-  .main,.wrapper,.content {
+  .main,.content {
     width:100%;
     height:100%;
   }
@@ -79,7 +62,7 @@ export default {
   a {
     text-decoration: none;
   }
-  
+
   .wrapper {
   }
 
