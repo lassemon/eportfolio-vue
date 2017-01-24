@@ -63,37 +63,30 @@ export default {
     text-decoration: none;
   }
 
-  .wrapper {
-  }
-
   .content {
     position: absolute;
     text-align: center;
-    padding: 10% 0 0 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 90%;
+    padding: 2em 0 0 0;
   }
 
-  #about {
-    .content {
-       background: radial-gradient(circle closest-corner at 50% bottom, lighten($about-color, 20), lighten($about-color, 10), $about-color);
-    }
+  #about.main {
+    background: radial-gradient(circle closest-corner at 50% bottom, lighten($about-color, 20), lighten($about-color, 10), $about-color);
   }
 
-  #portfolio {
-    .content {
-      background: radial-gradient(circle closest-corner at 50% bottom, lighten($portfolio-color, 10), lighten($portfolio-color, 5), $portfolio-color);
-    }
+  #portfolio.main {
+    background: radial-gradient(circle closest-corner at 50% bottom, lighten($portfolio-color, 20), lighten($portfolio-color, 10), $portfolio-color);
   }
 
-  #lifestyle {
-    .content {
-      background: radial-gradient(circle closest-corner at 50% bottom, lighten($lifestyle-color, 20), lighten($lifestyle-color, 10), $lifestyle-color);
-    }
+  #lifestyle.main {
+    background: radial-gradient(circle closest-corner at 50% bottom, lighten($lifestyle-color, 20), lighten($lifestyle-color, 10), $lifestyle-color);
   }
 
-  #contact {
-    .content {
-      background: radial-gradient(circle closest-corner at 50% bottom, lighten($contact-color, 10), lighten($contact-color, 5), $contact-color);
-    }
+  #contact.main {
+    background: radial-gradient(circle closest-corner at 50% bottom, lighten($contact-color, 20), lighten($contact-color, 10), $contact-color);
   }
 
   .fade-enter-active, .fade-leave-active {
